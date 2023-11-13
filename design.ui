@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>630</width>
+    <height>439</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Clock</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(115, 115, 115);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tab">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>611</width>
+      <height>391</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="tabPosition">
+     <enum>QTabWidget::North</enum>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Triangular</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="elideMode">
+     <enum>Qt::ElideMiddle</enum>
+    </property>
+    <widget class="QWidget" name="world_tab">
+     <attribute name="title">
+      <string>Wold Clock</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="alarm_tab">
+     <attribute name="title">
+      <string>Alarm</string>
+     </attribute>
+     <widget class="QWidget" name="gridLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>591</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="grid_alarm"/>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="stop_tab">
+     <attribute name="title">
+      <string>Stop Watch</string>
+     </attribute>
+     <widget class="QLabel" name="stop_show">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>60</y>
+        <width>391</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>23</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(170, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="stop_stopbutton">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>220</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 87, 118)</string>
+      </property>
+      <property name="text">
+       <string>Stop</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="stop_startbutton">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>220</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 255, 127);</string>
+      </property>
+      <property name="text">
+       <string>Start</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="stop_resetbutton">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>220</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Reset</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="timer_tab">
+     <attribute name="title">
+      <string>Timer</string>
+     </attribute>
+     <widget class="QLineEdit" name="timer_hour">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>70</y>
+        <width>91</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>35</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 0px;
+border-top-left-radius: 0px;
+border-bottom-right-radius: 0px;
+border-bottom-left-radius: 0px;
+color: rgb(170, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>00</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="timer_startbutton">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>220</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 255, 127);</string>
+      </property>
+      <property name="text">
+       <string>Start</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="timer_stopbutton">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>220</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 87, 118)</string>
+      </property>
+      <property name="text">
+       <string>Stop</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="timer_resetbutton">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>220</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Reset</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="timer_minute">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>70</y>
+        <width>91</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>35</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 0px;
+border-top-left-radius: 0px;
+border-bottom-right-radius: 0px;
+border-bottom-left-radius: 0px;
+color: rgb(170, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>15</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="timer_second">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>70</y>
+        <width>91</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>35</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 0px;
+border-top-left-radius: 0px;
+border-bottom-right-radius: 0px;
+border-bottom-left-radius: 0px;
+color: rgb(170, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>30</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>40</y>
+        <width>49</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>hour</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>40</y>
+        <width>49</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>minute</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>40</y>
+        <width>49</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>second</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>90</y>
+        <width>21</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>21</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>90</y>
+        <width>21</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>21</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>630</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
