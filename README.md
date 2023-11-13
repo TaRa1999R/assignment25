@@ -11,3 +11,5 @@ This app has four different section:
 
 4. Timer ⏲:
    A timer is a type of clock used for measuring specific times.
+
+You can access this app by running the cod or by using exe. file.
