@@ -47,7 +47,7 @@
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="elideMode">
      <enum>Qt::ElideMiddle</enum>
@@ -73,7 +73,8 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(0, 255, 127);</string>
+       <string notr="true">background-color: rgb(0, 255, 127);
+color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Tehran, Iran</string>
@@ -99,7 +100,8 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(0, 255, 255);</string>
+       <string notr="true">background-color: rgb(0, 255, 255);
+color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Washington, U.S.A</string>
@@ -125,7 +127,8 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 87, 118)</string>
+       <string notr="true">background-color: rgb(255, 87, 118);
+color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Berlin, Germany</string>
@@ -151,7 +154,8 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(170, 170, 255);</string>
+       <string notr="true">background-color: rgb(170, 170, 255);
+color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Ottawa, Canada</string>
@@ -544,7 +548,8 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 87, 118)</string>
+       <string notr="true">background-color: rgb(255, 87, 118);
+color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Stop</string>
@@ -567,7 +572,8 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(0, 255, 127);</string>
+       <string notr="true">background-color: rgb(0, 255, 127);
+color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Start</string>
@@ -590,7 +596,8 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(0, 255, 255);</string>
+       <string notr="true">background-color: rgb(0, 255, 255);
+color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Reset</string>
@@ -648,7 +655,8 @@ color: rgb(170, 170, 255);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(0, 255, 127);</string>
+       <string notr="true">background-color: rgb(0, 255, 127);
+color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Start</string>
@@ -671,7 +679,8 @@ color: rgb(170, 170, 255);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 87, 118)</string>
+       <string notr="true">background-color: rgb(255, 87, 118);
+color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Stop</string>
@@ -694,7 +703,8 @@ color: rgb(170, 170, 255);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(0, 255, 255);</string>
+       <string notr="true">background-color: rgb(0, 255, 255);
+color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Reset</string>
