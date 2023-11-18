@@ -22,6 +22,8 @@ class Mainwindow ( QMainWindow ) :
         self.stop_watch = Thread_Stop_watch ()
         self.ui.stop_startbutton.clicked.connect (self.start_stopwatch)
         self.stop_watch.stop_watch_signal.connect (self.show_stopwatch)
+        self.ui.stop_stopbutton.clicked.connect (self.stop_stopwatch)
+        self.ui.stop_resetbutton.clicked.connect (self.reset_stopwatch)
     
     #stop_watch_methods
     def start_stopwatch (self) :
