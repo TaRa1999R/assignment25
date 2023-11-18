@@ -36,7 +36,7 @@ class Mainwindow ( QMainWindow ) :
         #world clock property
         self.world_clock = Thread_Wold_clock ()
         self.world_clock.start ()
-        self.world_clock.world_clock_signal.connect (self.show_worlclock)
+        self.world_clock.world_clock_signal.connect (self.show_worldclock)
     
     #stop_watch_methods
     def start_stopwatch (self) :
@@ -88,7 +88,7 @@ class Mainwindow ( QMainWindow ) :
             self.ui.timer_second.setText (str (self.timer_second))
             
     #world clock methods
-    def show_worlclock (self , time , country) :
+    def show_worldclock (self , time , country) :
         if country == "iran" :
             self.ui.world_iran.setText (f"{time.hour} : {time.minute} : {time.second}")
         
