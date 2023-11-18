@@ -19,4 +19,4 @@ class Thread_Timer ( QThread ) :
             time.sleep (1)
 
     def reset ( self ) :
-        ...
+        self.time = Time (0 , 15 , 30)

@@ -4,6 +4,7 @@ import time
 from PySide6.QtWidgets import *
 from PySide6.QtGui import *
 from PySide6.QtCore import Signal
+from notifypy import Notify
 from world_clock import Thread_Wold_clock
 from alarm import Thread_Alarm
 from stop_watch import Thread_Stop_watch
@@ -29,6 +30,8 @@ class Mainwindow ( QMainWindow ) :
         self.timer = Thread_Timer ()
         self.ui.timer_startbutton.clicked.connect (self.start_timer)
         self.timer.timer_signal.connect (self.show_timer)
+        self.ui.timer_stopbutton.clicked.connect (self.stop_timer)
+        self.ui.timer_resetbutton.clicked.connect (self.reset_timer)
     
     #stop_watch_methods
     def start_stopwatch (self) :
@@ -46,22 +49,39 @@ class Mainwindow ( QMainWindow ) :
 
     #timer_methods
     def start_timer (self) :
-        hour = int (self.ui.timer_hour.text())
-        minute = int (self.ui.timer_minute.text())
-        second = int (self.ui.timer_second.text())
-        self.timer.set_time (hour , minute , second)
+        self.timer_hour = int (self.ui.timer_hour.text())
+        self.timer_minute = int (self.ui.timer_minute.text())
+        self.timer_second = int (self.ui.timer_second.text())
+        self.timer.set_time (self.timer_hour , self.timer_minute , self.timer_second)
         self.timer.start ()
 
     def stop_timer (self) :
-        ...
+        self.timer.terminate ()
 
     def reset_timer (self) :
-        ...
+        self.timer.reset ()
+        self.ui.timer_hour.setText ("00")
+        self.ui.timer_minute.setText ("15")
+        self.ui.timer_second.setText ("30")
     
     def show_timer (self , time) :
         self.ui.timer_hour.setText (str (time.hour))
         self.ui.timer_minute.setText (str (time.minute))
         self.ui.timer_second.setText (str (time.second))
+        self.timer_check (time.hour , time.minute , time.second)
+    
+    def timer_check (self , h , min , sec) : 
+        if h == min == sec == 0 :
+            notif = Notify ()
+            notif.title = "Tmer ⏳"
+            notif.message = "Timer Done"
+            notif.audio = "timer.wav"
+            notif.send ()
+            self.stop_timer ()
+            self.ui.timer_hour.setText (str (self.timer_hour))
+            self.ui.timer_minute.setText (str (self.timer_minute))
+            self.ui.timer_second.setText (str (self.timer_second))
+            
 
 
 if __name__ == "__main__" :
