@@ -30,7 +30,7 @@ class Mainwindow ( QMainWindow ) :
         self.stop_watch.start ()
     
     def stop_stopwatch (self) :
-        ...
+        self.stop_watch.terminate ()
     
     def reset_stopwatch (self) :
         ...
