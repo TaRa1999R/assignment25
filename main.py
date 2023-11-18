@@ -29,7 +29,8 @@ class Mainwindow ( QMainWindow ) :
         hour = int (self.ui.timer_hour.text())
         minute = int (self.ui.timer_minute.text())
         second = int (self.ui.timer_second.text())
-        self.timer = Thread_Timer ()
+        self.timer = Thread_Timer (hour , minute , second)
+        self.ui.timer_startbutton.clicked.connect (self.start_timer)
     
     #stop_watch_methods
     def start_stopwatch (self) :
