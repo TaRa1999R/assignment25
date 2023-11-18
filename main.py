@@ -19,19 +19,24 @@ class Mainwindow ( QMainWindow ) :
         self.ui = Ui_MainWindow ()
         self.ui.setupUi (self)
 
-        #stop_watch_property
+        #stop watch property
         self.stop_watch = Thread_Stop_watch ()
         self.ui.stop_startbutton.clicked.connect (self.start_stopwatch)
         self.stop_watch.stop_watch_signal.connect (self.show_stopwatch)
         self.ui.stop_stopbutton.clicked.connect (self.stop_stopwatch)
         self.ui.stop_resetbutton.clicked.connect (self.reset_stopwatch)
 
-        #timer_property
+        #timer property
         self.timer = Thread_Timer ()
         self.ui.timer_startbutton.clicked.connect (self.start_timer)
         self.timer.timer_signal.connect (self.show_timer)
         self.ui.timer_stopbutton.clicked.connect (self.stop_timer)
         self.ui.timer_resetbutton.clicked.connect (self.reset_timer)
+
+        #world clock property
+        self.world_clock = Thread_Wold_clock ()
+        self.world_clock.start ()
+        self.world_clock.world_clock_signal.connect (self.show_worlclock)
     
     #stop_watch_methods
     def start_stopwatch (self) :
@@ -82,6 +87,19 @@ class Mainwindow ( QMainWindow ) :
             self.ui.timer_minute.setText (str (self.timer_minute))
             self.ui.timer_second.setText (str (self.timer_second))
             
+    #world clock methods
+    def show_worlclock (self , time , country) :
+        if country == "iran" :
+            self.ui.world_iran.setText (f"{time.hour} : {time.minute} : {time.second}")
+        
+        elif country == "usa" :
+            self.ui.world_USA.setText (f"{time.hour} : {time.minute} : {time.second}")
+        
+        elif country == "canada" :
+            self.ui.world_canad.setText (f"{time.hour} : {time.minute} : {time.second}")
+        
+        elif country == "germany" :
+            self.ui.world_germany.setText (f"{time.hour} : {time.minute} : {time.second}")
 
 
 if __name__ == "__main__" :

@@ -33,3 +33,12 @@ class Time () :
             self.minute = 59
             self.second = 59
         
+    def add (self , h , min , sec) :
+        self.hour += h
+        self.minute += min
+        self.second += sec
+
+    def sub ( self, h , min , sec) :
+        self.hour -= h
+        self.minute -= min
+        self.second -= sec
