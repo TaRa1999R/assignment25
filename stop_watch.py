@@ -8,7 +8,7 @@ class Thread_Stop_watch ( QThread ) :
 
     def __init__ ( self ) :
         super().__init__()
-        self.time = Time ( 0 , 0 , 0)
+        self.time = Time (0 , 0 , 0)
 
     def run ( self ) :
         while True :
@@ -17,4 +17,4 @@ class Thread_Stop_watch ( QThread ) :
             time.sleep (1)
     
     def reset ( self ) :
-        ...
+        self.time = Time (0 , 0 , 0)

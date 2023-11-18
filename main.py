@@ -33,7 +33,9 @@ class Mainwindow ( QMainWindow ) :
         self.stop_watch.terminate ()
     
     def reset_stopwatch (self) :
-        ...
+        self.stop_watch.reset ()
+        self.ui.stop_show.setText (f"00 : 00 : 00")
+
     
     def show_stopwatch (self , time) :
         self.ui.stop_show.setText (f"{time.hour} : {time.minute} : {time.second}")
