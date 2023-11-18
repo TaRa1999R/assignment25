@@ -24,6 +24,12 @@ class Mainwindow ( QMainWindow ) :
         self.stop_watch.stop_watch_signal.connect (self.show_stopwatch)
         self.ui.stop_stopbutton.clicked.connect (self.stop_stopwatch)
         self.ui.stop_resetbutton.clicked.connect (self.reset_stopwatch)
+
+        #timer_property
+        hour = int (self.ui.timer_hour.text())
+        minute = int (self.ui.timer_minute.text())
+        second = int (self.ui.timer_second.text())
+        self.timer = Thread_Timer ()
     
     #stop_watch_methods
     def start_stopwatch (self) :
@@ -35,10 +41,22 @@ class Mainwindow ( QMainWindow ) :
     def reset_stopwatch (self) :
         self.stop_watch.reset ()
         self.ui.stop_show.setText (f"00 : 00 : 00")
-
     
     def show_stopwatch (self , time) :
         self.ui.stop_show.setText (f"{time.hour} : {time.minute} : {time.second}")
+
+    #timer_methods
+    def start_timer (self) :
+        ...
+
+    def stop_timer (self) :
+        ...
+
+    def reset_timer (self) :
+        ...
+    
+    def show_timer (self) :
+        ...
 
 
 if __name__ == "__main__" :
