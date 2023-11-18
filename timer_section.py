@@ -6,12 +6,11 @@ from clock import Time
 class Thread_Timer ( QThread ) :
     timer_signal = Signal (Time)
 
-    def __init__ ( self , hour , minute , second ) :
+    def __init__ ( self ) :
         super().__init__()
-        self.hour = hour
-        self.minute = minute
-        self.second = second
-        self.time = Time (self.hour , self.minute , self.second)
+
+    def set_time ( self , hour , minute , second ) :
+        self.time = Time (hour , minute , second)
     
     def run ( self ) :
         while True :
