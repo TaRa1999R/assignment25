@@ -1,7 +1,7 @@
 
 from PySide6.QtCore import QThread
 
-class Wold_clock ( QThread ) :
+class Thread_Wold_clock ( QThread ) :
     def __init__ ( self ) :
         super().__init__()
         

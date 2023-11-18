@@ -1,7 +1,7 @@
 
 from PySide6.QtCore import QThread
 
-class Alarm ( QThread ) :
+class Thread_Alarm ( QThread ) :
     def __init__ ( self ) :
         super().__init__()
 

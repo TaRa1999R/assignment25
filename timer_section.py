@@ -1,7 +1,7 @@
 
 from PySide6.QtCore import QThread
 
-class Timer ( QThread ) :
+class Thread_Timer ( QThread ) :
     def __init__ ( self ) :
         super().__init__()
     
