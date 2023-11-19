@@ -4,7 +4,7 @@ import sqlite3
 class Database () :
 
     def __init__ (self) :
-        self.con = sqlite3.connect ("alarm.db")
+        self.con = sqlite3.connect ("alarm.db", check_same_thread=False)
         self.cur = self.con.cursor ()
 
 

@@ -36,7 +36,7 @@ class Mainwindow ( QMainWindow ) :
 
         #world clock property
         self.world_clock = Thread_Wold_clock ()
-        # self.world_clock.start ()
+        self.world_clock.start ()
         self.world_clock.world_clock_signal.connect (self.show_worldclock)
 
         #alarm property
@@ -188,11 +188,11 @@ class Mainwindow ( QMainWindow ) :
                 message = QMessageBox (windowTitle = "❌Error!!❌" , text = txt)
                 message.exec_ ()
 
-    def alarm_ring (self , txt) :
+    def alarm_ring (self , txt) :        
         notif = Notify ()
         notif.title = "Alarm ⏰"
         notif.message = txt
-        notif.audio = "alarm.mp3"
+        notif.audio = "alarm.wav"
         notif.send ()
 
 if __name__ == "__main__" :
