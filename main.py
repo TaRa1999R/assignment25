@@ -35,10 +35,13 @@ class Mainwindow ( QMainWindow ) :
 
         #world clock property
         self.world_clock = Thread_Wold_clock ()
-        self.world_clock.start ()
+        # self.world_clock.start ()
         self.world_clock.world_clock_signal.connect (self.show_worldclock)
+
+        #alarm property
+        self.alarm = Thread_Alarm ()
     
-    #stop_watch_methods
+    #stop watch methods
     def start_stopwatch (self) :
         self.stop_watch.start ()
     
@@ -52,7 +55,7 @@ class Mainwindow ( QMainWindow ) :
     def show_stopwatch (self , time) :
         self.ui.stop_show.setText (f"{time.hour} : {time.minute} : {time.second}")
 
-    #timer_methods
+    #timer methods
     def start_timer (self) :
         self.timer_hour = int (self.ui.timer_hour.text())
         self.timer_minute = int (self.ui.timer_minute.text())
@@ -104,6 +107,11 @@ class Mainwindow ( QMainWindow ) :
     #alarm methods
     def show_alarms (self) :
         ...
+
+    def add_alarm (self) :
+        ...
+    
+    def delet_alarm (self) :
     
 
 if __name__ == "__main__" :
