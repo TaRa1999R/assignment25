@@ -9,13 +9,21 @@ class Database () :
 
 
     def get_alarms (self) :
-        ...
+        query = f"SELECT * FROM alarm"
+        result = self.cur.execute (query)
+        tasks = result.fetchall ()
+        return (tasks)
 
     
-    def add_alarm (self) :
-        ...
+    def add_alarm (self , time , title) :
+        query = f"INSERT INTO alarm (time, title) VALUES ('{time}','{title}')"
+        result = self.cur.execute (query)
+        self.con.commit ()
 
     
     def delete_alarm (self) :
         ...
+
     
+    def update_alarm (self) :
+        ...
