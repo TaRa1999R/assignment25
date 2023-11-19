@@ -9,21 +9,37 @@ class Database () :
 
 
     def get_alarms (self) :
-        query = f"SELECT * FROM alarm"
+        query = f"SELECT * FROM alarms"
         result = self.cur.execute (query)
         tasks = result.fetchall ()
         return (tasks)
 
     
     def add_alarm (self , time , title) :
-        query = f"INSERT INTO alarm (time, title) VALUES ('{time}','{title}')"
-        result = self.cur.execute (query)
-        self.con.commit ()
+        try :
+            query = f"INSERT INTO alarms (time, title) VALUES ('{time}','{title}')"
+            self.cur.execute (query)
+            self.con.commit ()
+            return True
+        except :
+            return False
 
     
-    def delete_alarm (self) :
-        ...
+    def delete_alarm (self , id) :
+        try :
+            query = f"DELETE FROM alams WHERE id = {id}"
+            self.cur.execute (query)
+            self.con.commit ()
+            return True
+        except :
+            return False
 
     
-    def update_alarm (self) :
-        ...
+    def update_alarm (self , id , mode) :
+        try :
+            query = f"UPDATE alarms SET id = {id} WHERE mode = {mode}"
+            self.cur.execute (query)
+            self.con.commit ()
+            return True
+        except :
+            return False
