@@ -10,6 +10,7 @@ from alarm import Thread_Alarm
 from stop_watch import Thread_Stop_watch
 from timer_section import Thread_Timer
 from clock import Time
+from alarm_database import Database
 from design_ui import Ui_MainWindow
 
 class Mainwindow ( QMainWindow ) :
@@ -40,6 +41,8 @@ class Mainwindow ( QMainWindow ) :
 
         #alarm property
         self.alarm = Thread_Alarm ()
+        self.database = Database ()
+        self.show_alarms ()
     
     #stop watch methods
     def start_stopwatch (self) :
@@ -106,12 +109,44 @@ class Mainwindow ( QMainWindow ) :
     
     #alarm methods
     def show_alarms (self) :
-        ...
+        self.alarm_list = self.database.get_alarms ()
+        self.alarm_checkbox = []
+        self.alarm_deletebutton = []
+
+        for i in range (len (self.alarm_list)) :
+            new_checkbox = QCheckBox ()
+            new_lable_time = QLabel ()
+            new_lable_title = QLabel ()
+            new_button = QPushButton ()
+            self.alarm_checkbox.append ({"checkbox " : new_checkbox , "id" : self.alarm_list[i][0]})
+            self.alarm_deletebutton.append ({"button" : new_button , "id" : self.alarm_list[i][0]})
+
+            new_lable_time.setText (self.alarm_list[i][1] ) 
+            new_lable_title.setText (self.alarm_list[i][2])
+            new_button.setText ("🗑")
+            new_checkbox.setSizePolicy (QSizePolicy.Maximum , QSizePolicy.Fixed)
+            new_lable_time.setSizePolicy (QSizePolicy.Maximum , QSizePolicy.Fixed)
+            new_lable_title.setSizePolicy (QSizePolicy.Maximum , QSizePolicy.Fixed)
+            new_button.setSizePolicy (QSizePolicy.Maximum , QSizePolicy.Fixed)
+            new_lable_time.setFont (QFont ("Seven Segment" , 28))
+            new_lable_title.setFont (QFont ("Segoe UI" , 20))
+            new_lable_time.setStyleSheet ("color: rgb(0, 255, 255)")
+            new_lable_title.setStyleSheet ("color: rgb(0, 255, 127)")
+            new_button.setStyleSheet ("background-color: rgb(255, 87, 118)")
+            if self.alarm_list[i][3] == 0 :
+                new_checkbox.setChecked (True)
+
+            self.ui.alarm_grid.addWidget (new_checkbox , i , 0)
+            self.ui.alarm_grid.addWidget (new_lable_time , i , 1)
+            self.ui.alarm_grid.addWidget (new_lable_title , i , 2)
+            self.ui.alarm_grid.addWidget (new_button , i , 3)
+
+
 
     def add_alarm (self) :
         ...
     
-    def delet_alarm (self) :
+    def delet_alarm (self) :...
     
 
 if __name__ == "__main__" :
