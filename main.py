@@ -100,7 +100,11 @@ class Mainwindow ( QMainWindow ) :
         
         elif country == "germany" :
             self.ui.world_germany.setText (f"{time.hour} : {time.minute} : {time.second}")
-
+    
+    #alarm methods
+    def show_alarms (self) :
+        ...
+    
 
 if __name__ == "__main__" :
     app = QApplication (sys.argv)
