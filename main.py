@@ -41,7 +41,7 @@ class Mainwindow ( QMainWindow ) :
 
         #alarm property
         self.alarm = Thread_Alarm ()
-        self.alarm.run ()
+        self.alarm.start ()
         self.alarm.alarm_signal.connect (self.alarm_ring)
         self.database = Database ()
         self.show_alarms ()
@@ -200,4 +200,3 @@ if __name__ == "__main__" :
     window = Mainwindow ()
     window.show ()
     app.exec ()
-
