@@ -188,7 +188,12 @@ class Mainwindow ( QMainWindow ) :
                 message = QMessageBox (windowTitle = "❌Error!!❌" , text = txt)
                 message.exec_ ()
 
-    def alarm_ring (self) :
+    def alarm_ring (self , txt) :
+        notif = Notify ()
+        notif.title = "Alarm ⏰"
+        notif.message = txt
+        notif.audio = "alarm.mp3"
+        notif.send ()
 
 if __name__ == "__main__" :
     app = QApplication (sys.argv)
