@@ -27,7 +27,7 @@ class Database () :
     
     def delete_alarm (self , id) :
         try :
-            query = f"DELETE FROM alams WHERE id = {id}"
+            query = f"DELETE FROM alarms WHERE id = {id}"
             self.cur.execute (query)
             self.con.commit ()
             return True
@@ -37,7 +37,7 @@ class Database () :
     
     def update_alarm (self , id , mode) :
         try :
-            query = f"UPDATE alarms SET id = {id} WHERE mode = {mode}"
+            query = f"UPDATE alarms SET mode = {mode} WHERE id = {id}"
             self.cur.execute (query)
             self.con.commit ()
             return True

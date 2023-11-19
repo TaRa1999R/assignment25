@@ -1,6 +1,6 @@
 
 import sys
-import time
+from functools import partial
 from PySide6.QtWidgets import *
 from PySide6.QtGui import *
 from PySide6.QtCore import Signal
@@ -41,8 +41,16 @@ class Mainwindow ( QMainWindow ) :
 
         #alarm property
         self.alarm = Thread_Alarm ()
+        self.alarm.run ()
+        self.alarm.alarm_signal.connect (self.alarm_ring)
         self.database = Database ()
         self.show_alarms ()
+        self.ui.alarm_add.clicked.connect (self.add_alarm)
+        for button in self.alarm_deletebutton :
+            button["button"].clicked.connect (partial (self.delet_alarm , button["id"]))
+        
+        for box in self.alarm_checkbox :
+            box["checkbox"].clicked.connect (partial (self.alarm_mode , box["id"] , box["mode"]))
     
     #stop watch methods
     def start_stopwatch (self) :
@@ -118,7 +126,7 @@ class Mainwindow ( QMainWindow ) :
             new_lable_time = QLabel ()
             new_lable_title = QLabel ()
             new_button = QPushButton ()
-            self.alarm_checkbox.append ({"checkbox " : new_checkbox , "id" : self.alarm_list[i][0]})
+            self.alarm_checkbox.append ({"checkbox" : new_checkbox , "id" : self.alarm_list[i][0] , "mode" : self.alarm_list[i][3]})
             self.alarm_deletebutton.append ({"button" : new_button , "id" : self.alarm_list[i][0]})
 
             new_lable_time.setText (self.alarm_list[i][1] ) 
@@ -142,12 +150,45 @@ class Mainwindow ( QMainWindow ) :
             self.ui.alarm_grid.addWidget (new_button , i , 3)
 
 
-
     def add_alarm (self) :
-        ...
+        new_title = self.ui.alarm_title.text ()
+        new_h = self.ui.alaram_hour.text ()
+        new_min = self.ui.alarm_minute.text ()
+        new_time = f"{new_h} : {new_min}"
+        if self.database.add_alarm (new_time , new_title) == False :
+            txt = f"Please try again later"
+            message = QMessageBox (windowTitle = "❌Error!!❌" , text = txt)
+            message.exec_ ()
+        
+        else:
+            self.ui.alaram_hour.setValue (0)
+            self.ui.alarm_minute.setValue (0)
+            self.ui.alarm_title.setText ("")
+            self.show_alarms ()
     
-    def delet_alarm (self) :...
+    def delet_alarm (self, id) :
+        if self.database.delete_alarm (id) == False :
+            txt = f"Please try again later"
+            message = QMessageBox (windowTitle = "❌Error!!❌" , text = txt)
+            message.exec_ ()
+        
+        # else :
+            # self.show_alarms ()
     
+    def alarm_mode (self, id , pr_mode) :
+        if pr_mode == 0 :
+            if self.database.update_alarm (id , 1) == False :
+                txt = f"Please try again later"
+                message = QMessageBox (windowTitle = "❌Error!!❌" , text = txt)
+                message.exec_ ()
+
+        if pr_mode == 1 :
+            if self.database.update_alarm (id , 0) == False :
+                txt = f"Please try again later"
+                message = QMessageBox (windowTitle = "❌Error!!❌" , text = txt)
+                message.exec_ ()
+
+    def alarm_ring (self) :
 
 if __name__ == "__main__" :
     app = QApplication (sys.argv)
